@@ -70,8 +70,10 @@ nav ul li {
   background-image: url("pics/bg.jpg");
 }
 
+/* song progress line */
 #myProgressBar {
   width: 70vw;
+  cursor: pointer;
 }
 
 .songItem {
@@ -101,4 +103,16 @@ nav ul li {
 }
 .timestamp i {
   cursor: pointer;
+}
+
+.songInfo {
+  position: absolute;
+  bottom: 1rem;
+  left: 15vw;
+  font-family: "Poppins", sans-serif;
+}
+
+.songInfo img {
+  opacity: 0;
+  transition: opacity is ease-in;
 }
