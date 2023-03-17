@@ -22,7 +22,7 @@ nav ul {
 }
 
 nav ul li {
-  padding: 0 1px;
+  padding: 0 10px;
   /* padding-topbotton leftright */
 }
 
@@ -58,15 +58,47 @@ nav ul li {
 }
 
 .container {
-  height: 80vh;
+  height: 67.5vh;
   background-color: rgb(59, 180, 89);
   color: aliceblue;
   font-family: "Poppins", sans-serif;
   display: flex;
   margin: 8px auto;
   width: 80vw;
+  border-radius: 10px;
+  padding: 37.5px;
+  background-image: url("pics/bg.jpg");
 }
 
 #myProgressBar {
   width: 70vw;
+}
+
+.songItem {
+  height: 33px;
+  display: flex;
+  background-color: white;
+  color: rgb(54, 50, 50);
+  width: 300px;
+  margin: 12px 0;
+  border-radius: 20px;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.songItem img {
+  width: 25px;
+  margin: 0 13px;
+}
+
+.SongItemContainer {
+  margin-top: 10px;
+}
+
+.timestamp {
+  cursor: pointer;
+}
+.timestamp i {
+  cursor: pointer;
 }
