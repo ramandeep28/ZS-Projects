@@ -84,14 +84,16 @@ nav ul li {
   width: 300px;
   margin: 12px 0;
   border-radius: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-radius: 30px;
+  padding: 1.1px 1rem;
 }
 
 .songItem img {
   width: 25px;
   margin: 0 13px;
+  border-radius: 30rem;
 }
 
 .SongItemContainer {

@@ -7,17 +7,24 @@ let audioElement = new Audio("songs/1.mp3");
 let masterPlay = document.getElementById("masterPlay");
 let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
+let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
   { songName: "Mi-Amor", filePath: "songs/1.mp3", coverPath: "pics/covers/1.jpg" },
-  { songName: "420", filePath: "songs/2.mp3", coverPath: "pics/covers/2.jpg" },
-  { songName: "420", filePath: "songs/3.mp3", coverPath: "pics/covers/3.jpg" },
-  { songName: "420", filePath: "songs/4.mp3", coverPath: "pics/covers/4.jpg" },
-  { songName: "420", filePath: "songs/5.mp3", coverPath: "pics/covers/5.jpg" },
-  { songName: "420", filePath: "songs/6.mp3", coverPath: "pics/covers/6.jpg" },
-  { songName: "420", filePath: "songs/7.mp3", coverPath: "pics/covers/7.jpg" },
-  { songName: "420", filePath: "songs/8.mp3", coverPath: "pics/covers/8.jpg" },
-];
+  { songName: "Zinda", filePath: "songs/2.mp3", coverPath: "pics/covers/2.jpg" },
+  { songName: "Tera Hone Laga Hoon", filePath: "songs/3.mp3", coverPath: "pics/covers/3.jpg" },
+  { songName: "Bijli", filePath: "songs/4.mp3", coverPath: "pics/covers/4.jpg" },
+  { songName: "Mere Na", filePath: "songs/5.mp3", coverPath: "pics/covers/5.jpg" },
+  { songName: "Haal Munde Nu", filePath: "songs/6.mp3", coverPath: "pics/covers/6.jpg" },
+  { songName: "Gill Skill, Vol. 1", filePath: "songs/7.mp3", coverPath: "pics/covers/7.jpg" },
+  { songName: "I GOT YOU", filePath: "songs/8.mp3", coverPath: "pics/covers/8.jpg" }
+]
+
+songItems.forEach((element, i)=>{
+  console.log(element, i);
+  element.getElementsByTagName("img")[0].src = songs[i].coverPath;
+  element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
+})
 
 //handle play/pause click
 masterPlay.addEventListener("click", () => {
