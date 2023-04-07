@@ -21,7 +21,7 @@ let songs = [
 ]
 
 songItems.forEach((element, i)=>{
-  console.log(element, i);
+  // console.log(element, i);
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerText = songs[i].songName;
 })
@@ -43,7 +43,7 @@ masterPlay.addEventListener("click", () => {
 
 //listen_to_events
 audioElement.addEventListener("timeupdate", () => {
-  console.log("timeupdate");
+  // console.log("timeupdate");
   //update seekbar
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
   // console.log("currtime", audioElement.currentTime);
