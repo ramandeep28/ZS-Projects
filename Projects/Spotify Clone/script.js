@@ -56,4 +56,19 @@ audioElement.addEventListener("timeupdate", () => {
 // when we seek the progress bar, we seek the audio to that time also. 
 myProgressBar.addEventListener("change", () => {
   audioElement.currentTime =(myProgressBar.value * audioElement.duration) / 100;
-});
+})
+
+const makeAllPlays = ()=>{
+  Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
+    element.classList.remove('fa-circle-pause');
+    element.classList.add('fa-circle-play');
+  })
+}
+
+Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
+  element.addEventListener('click', (e)=>{
+    makeAllPlays();
+    e.target.remove('fa-circle-play');
+    e.target.add('fa-circle-pause');
+  })
+})
