@@ -27,7 +27,7 @@ songItems.forEach((element, i)=>{
 })
 
 //handle play/pause click
-masterPlay.addEventListener("click", () => {
+masterPlay.addEventListener('click', () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
     audioElement.play();
     masterPlay.classList.remove("fa-circle-play");
@@ -42,7 +42,7 @@ masterPlay.addEventListener("click", () => {
 });
 
 //listen_to_events
-audioElement.addEventListener("timeupdate", () => {
+audioElement.addEventListener('timeupdate', () => {
   // console.log("timeupdate");
   //update seekbar
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
@@ -54,9 +54,9 @@ audioElement.addEventListener("timeupdate", () => {
 });
 
 // when we seek the progress bar, we seek the audio to that time also. 
-myProgressBar.addEventListener("change", () => {
+myProgressBar.addEventListener('change', () => {
   audioElement.currentTime =(myProgressBar.value * audioElement.duration) / 100;
-})
+})  
 
 const makeAllPlays = ()=>{
   Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
@@ -68,7 +68,11 @@ const makeAllPlays = ()=>{
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
   element.addEventListener('click', (e)=>{
     makeAllPlays();
-    e.target.remove('fa-circle-play');
-    e.target.add('fa-circle-pause');
+    e.target.classList.remove('fa-circle-play');
+    e.target.classList.add('fa-circle-pause');
+    audioElement.src = 'songs/1.mp3';
+    audioElement.currentTime = 0;
+    // when sing will change, then current time will change to 0 everytie bro
+    audioElement.play();
   })
 })
