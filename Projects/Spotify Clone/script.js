@@ -14,47 +14,32 @@ let nxt = document.getElementById("next");
 
 let songs = [
   {
-    songName: "Mi-Amor",
-    filePath: "songs/1.mp3",
-    coverPath: "pics/covers/1.jpg",
+    songName: "Mi-Amor",filePath: "songs/1.mp3",coverPath: "pics/covers/1.jpg",
   },
   {
-    songName: "Bohemia-420",
-    filePath: "songs/2.mp3",
-    coverPath: "pics/covers/2.jpg",
+    songName: "Bohemia-420",filePath: "songs/2.mp3",coverPath: "pics/covers/2.jpg",
   },
   {
-    songName: "Tera Hone Laga Hoon",
-    filePath: "songs/3.mp3",
-    coverPath: "pics/covers/3.jpg",
+    songName: "Tera Hone Laga Hoon",filePath: "songs/3.mp3",coverPath: "pics/covers/3.jpg",
   },
   {
-    songName: "Bijli",
-    filePath: "songs/4.mp3",
-    coverPath: "pics/covers/4.jpg",
+    songName: "Bijli",filePath: "songs/4.mp3",coverPath: "pics/covers/4.jpg",
   },
   {
-    songName: "Mere Na",
-    filePath: "songs/5.mp3",
-    coverPath: "pics/covers/5.jpg",
+    songName: "Mere Na",filePath: "songs/5.mp3",coverPath: "pics/covers/5.jpg",
   },
   {
-    songName: "Haal Munde Nu",
-    filePath: "songs/6.mp3",
-    coverPath: "pics/covers/6.jpg",
+    songName: "Haal Munde Nu",filePath: "songs/6.mp3",coverPath: "pics/covers/6.jpg",
   },
   {
-    songName: "Gill Skill, Vol. 1",
-    filePath: "songs/7.mp3",
-    coverPath: "pics/covers/7.jpg",
+    songName: "Gill Skill, Vol. 1",filePath: "songs/7.mp3",coverPath: "pics/covers/7.jpg",
   },
   {
-    songName: "I GOT YOU",
-    filePath: "songs/8.mp3",
-    coverPath: "pics/covers/8.jpg",
+    songName: "I GOT YOU",filePath: "songs/8.mp3",coverPath: "pics/covers/8.jpg",
   },
 ];
 
+// to add cover photo and song names in the song list we made in the app
 songItems.forEach((element, i) => {
   // console.log(element, i);
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
@@ -76,7 +61,7 @@ masterPlay.addEventListener("click", () => {
   }
 });
 
-//listen_to_events
+//listen_to_events, updating song progress value and seekbar
 audioElement.addEventListener("timeupdate", () => {
   // console.log("timeupdate");
   //update seekbar
@@ -94,6 +79,7 @@ myProgressBar.addEventListener("change", () => {
     (myProgressBar.value * audioElement.duration) / 100;
 });
 
+// when we play song from the list, then that song icon changes to pause as its being played and others change to play icon.
 const makeAllPlays = () => {
   Array.from(document.getElementsByClassName("songItemPlay")).forEach(
     (element) => {
@@ -103,17 +89,19 @@ const makeAllPlays = () => {
   );
 };
 
-Array.from(document.getElementsByClassName("songItemPlay")).forEach(
-  (element) => {
-    element.addEventListener("click", (e) => {
+// to make the song play and pause from the icons present in song list in app.
+Array.from(document.getElementsByClassName("songItemPlay")).forEach((element) => {
+      element.addEventListener("click", (e) => {
       makeAllPlays();
       songIndex = parseInt(e.target.id);
       e.target.classList.remove("fa-circle-play");
       e.target.classList.add("fa-circle-pause");
       audioElement.src = `songs/${songIndex + 1}.mp3`;
+      masterSongName.innerText = songs[songIndex].songName;
       audioElement.currentTime = 0;
       // when sing will change, then current time will change to 0 everytime bro
       audioElement.play();
+      gif.style.opacity = 1;
       masterPlay.classList.remove("fa-circle-play");
       masterPlay.classList.add("fa-circle-pause");
     });
@@ -128,6 +116,7 @@ nxt.addEventListener("click", () => {
     songIndex += 1;
   }
   audioElement.src = `songs/${songIndex + 1}.mp3`;
+  masterSongName.innerText = songs[songIndex].songName;
   audioElement.currentTime = 0;
   audioElement.play();
   masterPlay.classList.remove("fa-circle-play");
@@ -142,6 +131,7 @@ prev.addEventListener("click", () => {
     songIndex -= 1;
   }
   audioElement.src = `songs/${songIndex + 1}.mp3`;
+  masterSongName.innerText = songs[songIndex].songName;
   audioElement.currentTime = 0;
   audioElement.play();
   masterPlay.classList.remove("fa-circle-play");
