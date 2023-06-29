@@ -1,13 +1,13 @@
 /* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@ body{
   background-color: rgb(76, 178, 236);
 }
 
-.container{
+.container {
   display: flex;
   width: 100%;
   max-width: 1050px;
@@ -23,43 +23,44 @@ body{
   gap: 10px;
 }
 
-section{
+section {
   background: aliceblue;
   border-radius: 7px;
 }
 
-.tools-board{
+.tools-board {
   width: 170px;
   padding: 15px 22px 0;
 }
 
-.tools-board .row{
+.tools-board .row {
   margin-bottom: 20px;
 }
-.row .options{
-  list-style: none;  
+.row .options {
+  list-style: none;
   /* this removed dots for list. */
   margin: 10px 0 0 -2px;
 }
 
-.row .options .option{
+.row .options .option {
   display: flex;
   cursor: pointer;
   align-items: center;
   margin-top: 10px;
 }
 
-.option:is(:hover, .active) img{
-  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(200%);
+.option:is(:hover, .active) img {
+  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg)
+    brightness(100%) contrast(200%);
 }
 /* chng size of fill-color vala check box */
-.option #fill-color{
+.option #fill-color {
   height: 15px;
   width: 15px;
 }
 
 /* rect, circle, triangle these all options color fixed and padding added to make space b/w text and shape */
-.option :where(span,label){
+.option :where(span, label) {
   color: #5a6168;
   padding-left: 7px;
   cursor: pointer;
@@ -69,31 +70,41 @@ section{
   color: red;
 } */
 
-.option #size-slider{
+.option #size-slider {
   width: 100%;
   height: 4px;
   margin-top: 12px;
 }
 
-.colors .options{
+.colors .options {
   display: flex;
   justify-content: space-between;
 }
 
-.colors .option{
+.colors .option {
   height: 15px;
   width: 15px;
-   background: rgb(79, 189, 134);
-   border-radius: 50%;
-   margin-top: 3px;
+  background: rgb(22, 48, 192);
+  border-radius: 50%;
+  margin-top: 3px;
+  position: relative;
 }
 
-.colors .option::before{
+.colors .option::before {
   position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  height: 12px;
+  width: 12px;
+  background: inherit;
+  border-radius: inherit;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
 }
-.option:is(:hover, .active) :where(span,label){
+.option:is(:hover, .active) :where(span, label) {
   color: #4394b9;
 }
-.drawing-board{
+.drawing-board {
   flex: 1;
 }
